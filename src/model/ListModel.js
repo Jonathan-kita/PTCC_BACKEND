@@ -46,7 +46,6 @@ class Banco_List extends Conexao {
 
         return new Promise(function (resolve, reject) {
             setTimeout(function () {
-                console.log(valor.rows)
                 resolve(valor)
                 reject("Erro na promisse pedido");
             }, 1000)

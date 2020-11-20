@@ -4,6 +4,8 @@ const ListController = require('../controller/ListController');
 const listController = new ListController;
 const CompanyController = require('../controller/CompanyController');
 const companyController = new CompanyController;
+const OrderController = require('../controller/OrderController');
+const orderController = new OrderController;
 
 const express = require("express");
 const routes = express.Router();
@@ -61,6 +63,36 @@ module.exports = {
   async List_Pedidos(req, res) {
     const { id } = req.body
     listController.List_pedido(id).then(
+      results => res.send(results)
+    )
+  },
+
+  async order_details(req, res) {
+    const { id } = req.body
+    orderController.Order_Details(id).then(
+      results => res.send(results)
+    )
+  },
+
+  async order_status_create(req, res) {
+    const { id } = req.body
+    const { detalhe } = req.body
+    const { data } = req.body
+    orderController.Order_Status_Create(id, detalhe, data).then(
+      results => res.send(results)
+    )
+  },
+
+  async order_status(req, res) {
+    const { id } = req.body
+    orderController.Order_Status(id).then(
+      results => res.send(results)
+    )
+  },
+
+  async order_status_update(req, res) {
+    const { id } = req.body
+    orderController.Order_Status_Update(id).then(
       results => res.send(results)
     )
   }
