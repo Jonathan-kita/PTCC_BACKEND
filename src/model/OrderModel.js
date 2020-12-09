@@ -29,7 +29,7 @@ class Banco_Order extends Conexao {
     }
 
     async status_create(id, detalhe, data) {
-        const text = "insert into status_pedido (pedido_id_status,status_detalhe,data_status,status) values ('"
+        const text = "insert into status_pedido (pedido_id_status,status_detalhe,data_status) values ('"
             + id + "', '" + detalhe + "', '" + data + "')"
         const client = await con.Open(text).catch(e => console.error("erro na query"))
 
