@@ -102,4 +102,8 @@ routes.post('/Company_Photo_Update', (req, res) => { rotas.company_photo_update(
 
 routes.post('/Company', (req, res) => { rotas.company(req, res); });
 
+routes.post('/Search_Filter', (req, res) => { rotas.Search_Filter(req, res); });
+
+routes.post('/Search_Filter_Company', (req, res) => { rotas.Search_Filter_Company(req, res); });
+
 module.exports = routes;

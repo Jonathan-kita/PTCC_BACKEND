@@ -8,6 +8,8 @@ const OrderController = require('../controller/OrderController');
 const orderController = new OrderController;
 const ProductController = require('../controller/ProductController');
 const productController = new ProductController;
+const SearchController = require('../controller/SearchController');
+const searchController = new SearchController;
 
 const express = require("express");
 const routes = express.Router();
@@ -255,6 +257,21 @@ module.exports = {
     const { produto } = req.body
     const { raca } = req.body
     productController.Category_Update(categoria, produto, raca).then(
+      results => res.send(results)
+    )
+  },
+
+  async Search_Filter(req, res) {
+    const { campo } = req.body
+    const { busca } = req.body
+    searchController.Search_Filter(campo, busca).then(
+      results => res.send(results)
+    )
+  },
+
+  async Search_Filter_Company(req, res) {
+    const { busca } = req.body
+    searchController.Search_Filter_Company(busca).then(
       results => res.send(results)
     )
   },
